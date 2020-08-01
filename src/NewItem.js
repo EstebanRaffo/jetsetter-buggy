@@ -29,12 +29,12 @@ class NewItem extends Component {
   render() {
 
     return (
-      <form className="NewItem" onSubmit={handleSubmit}>
+      <form className="NewItem" onSubmit={this.handleSubmit}>
         <input
           className="NewItem-input"
           type="text"
-          value={value}
-          onChange={}
+          value={this.state.value}
+          onChange={this.handleChange}
         />
         <input className="NewItem-submit button" type="submit" />
       </form>
@@ -42,4 +42,4 @@ class NewItem extends Component {
   }
 }
 
-
+export default NewItem;

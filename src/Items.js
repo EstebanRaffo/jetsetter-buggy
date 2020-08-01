@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Item from "./Item";
 import Filter from "./Filter";
 
-class Items extend Component {
-  this.state = {
+class Items extends Component {
+  state = {
     searchTerm: ""
   };
 
@@ -12,7 +12,7 @@ class Items extend Component {
   };
 
   render() {
-    const { title, items, onCheckOff } = this.props;
+    const { title, items, onCheckOff, onRemove } = this.props;
     const { searchTerm } = this.state;
     return (
       <section className="Items">
@@ -22,11 +22,11 @@ class Items extend Component {
         <Filter searchTerm={searchTerm} onChange={this.updateSearchTerm} />
         {items
           .filter(item =>
-            item.value.toLowerCase().includes(searchTerm.tolowerCase())
+            item.value.toLowerCase().includes(searchTerm.toLowerCase())
           )
           .map(item => (
             <Item
-              key={id}
+              key={item.id}
               onCheckOff={() => onCheckOff(item)}
               onRemove={() => onRemove(item)}
               item={item}
@@ -36,3 +36,5 @@ class Items extend Component {
     );
   }
 }
+
+export default Items;

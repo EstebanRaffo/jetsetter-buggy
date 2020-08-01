@@ -20,7 +20,7 @@ const defaultState = [
 
 class Application extends Component {
   state = {
-    items: []
+    items: defaultState
   };
 
   addItem = item => {
@@ -34,9 +34,9 @@ class Application extends Component {
   };
 
   markAsPacked = item => {
-    const otherItems = this.state.items.filter(others => other.id !== item.id);
+    const otherItems = this.state.items.filter(other => other.id !== item.id);
     const updatedItem = { ...item, packed: !item.packed };
-    this.setState(items: [updatedItem, ...otherItems]);
+    this.setState({items: [updatedItem, ...otherItems]});
   };
 
   markAllAsUnpacked = () => {
@@ -55,16 +55,16 @@ class Application extends Component {
         <Items
           title="Items no empacados"
           items={unpackedItems}
-          onCheckOff={markAsPacked}
-          onRemove={removeItem}
+          onCheckOff={this.markAsPacked}
+          onRemove={this.removeItem}
         />
         <Items
           title="Items empacados"
           items={packedItems}
-          onCheckOff={markAsPacked}
-          onRemove={removeItem}
+          onCheckOff={this.markAsPacked}
+          onRemove={this.removeItem}
         />
-        <button className="button full-width" onClick={markAllAsUnpacked}>
+        <button className="button full-width" onClick={this.markAllAsUnpacked}>
           Marcar todos como desempacados
         </button>
       </div>
@@ -72,4 +72,4 @@ class Application extends Component {
   }
 }
 
-
+export default Application;
